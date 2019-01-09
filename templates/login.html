@@ -1,0 +1,65 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <title>LOGIN | HOSPITALITY PORTAL | TECHNEX '17</title>
+   <link href="/static/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+   <link href="/static/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/static/vendors/nprogress/nprogress.css" rel="stylesheet">
+    <link href="/static/vendors/animate.css/animate.min.css" rel="stylesheet">
+      <link href="/static/build/css/custom.min.css" rel="stylesheet">
+  </head>
+
+<body class="login">
+<div>
+  <div class="login_wrapper">
+  <section class="login_content">
+  <form method='post'>
+  {% csrf_token %}
+  <h1>Team Login</h1>
+  <div>
+  <input type='text' name='username' placeholder="Username" required="true"  class="form-control" />
+  </div>
+   <div>
+  <input type="password" name='password' class="form-control" placeholder="Password" required="" />
+              </div>
+              <div>
+              <input type='submit' value='Login' class="btn btn-primary pull-right" />
+              </div>
+              <div class="clearfix"></div>
+               <div class="separator">
+                <div class="clearfix"></div>
+                <br />
+
+                <div>
+                  <h1>Technex '17</h1>
+                </div>
+              </div>
+              </form>
+  </section>
+  </div>
+  </div>
+{% if errors %}
+{{errors}}
+{% endif %}
+
+{% if transactions %}
+<table>
+<legend>{{request.user.username}}</legend>
+<tr><td>Email</td><td>Name</td><td>Amount</td><td>Facility</td></tr>
+
+{% for transaction in transactions %}
+<tr>
+<td>{{transaction.creditor.email}}</td><td>  {{transaction.creditor.user.first_name}}</td>
+<td> {{transaction.amount}}</td>{{transaction.facility.name}}({{transaction.facility.maxPrice}})
+{% endfor %}
+</table>
+{% endif %}
+<script src="{% static "jquery.min.js"%}"></script>
+<script type="text/javascript">
+	$(document).ready(function($) {
+		$("input[name='username']").focus();	
+	});
+	
+</script>
+</body>

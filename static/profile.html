@@ -1,0 +1,406 @@
+<style type="text/css">
+.tooltip-nameDrama {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip-nameDrama .tooltiptext-nameDrama {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 150%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.tooltip-nameDrama .tooltiptext-nameDrama::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: black transparent transparent transparent;
+}
+
+.tooltip-nameDrama:hover .tooltiptext-nameDrama {
+    visibility: visible;
+    opacity: 1;
+}
+#eventParentEvent{
+  text-transform: capitalize;
+}
+th
+{
+      border: 2px solid white;
+      color: white;
+}
+@keyframes spin {
+  from {
+    transform: rotateX(0);
+  }
+  to {
+    transform: rotateX(1turn);
+  }
+}
+.card {
+  animation: spin 2s ease;
+  animation-iteration-count: 1;
+}
+
+.container {
+  perspective: 1000px;
+
+}
+.abcdf
+{
+  height: 100%;
+  padding: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+/*dsdf*/
+.card {
+  background-image: linear-gradient(-154deg, #FFFFFF 0%, #ECEFF2 100%);
+  border-radius: 8px;
+  width: 437px;
+  padding: 24px;
+  font-size: 24px;
+  line-height: 32px;
+  margin: 12px 0;
+  min-height: 124px;
+  box-sizing: border-box;
+}
+.card.-small {
+  width: 320px;
+}
+
+.card--title {
+  color: #4A90E2;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.card--title:hover {
+  color: #FF4593;
+}
+
+.card--text {
+  color: #4A4A4A;
+  margin: 12px 0 0 0;
+}
+
+.-purple {
+  background-image: linear-gradient(-146deg, #9793FD 0%, #AA20A8 100%);
+}
+
+.-orange {
+  background-image: linear-gradient(-143deg, #FA61C2 0%, #F76B1C 100%);
+}
+
+.-green {
+  background-image: linear-gradient(-144deg, #6AEEC6 0%, #698D28 100%);
+}
+
+.-yellow {
+  background-image: linear-gradient(-134deg, #FFEA9D 0%, #FF9458 100%);
+}
+
+.-blue {
+  background-image: linear-gradient(-143deg, #6180FA 0%, #81C9CC 100%);
+}
+
+.-lilac {
+  background-image: linear-gradient(-144deg, #CCDAFF 0%, #C7B1FF 100%);
+}
+
+/*dddf*/
+
+</style>                    
+<div class="right_col" role="main" style="min-height: 1023px;">
+ <section ng-switch on="(editIndex == $index)"
+                     ng-repeat="person in employeeArray track by $index"
+                     class="clearfix">
+          <div class="">
+            <div class="page-title">
+              <div class="title_left">
+                <h3>User Profile</h3>
+              </div>
+              <div class="title_right">
+                <h3 style="float: right;">{{person.technexId}}</h3>
+              </div>
+
+              
+            </div>
+            
+            <div class="clearfix"></div>
+
+            <div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  
+                  <div class="x_content">
+                    <div class="col-md-3 col-sm-3 col-xs-12 profile_left">
+                      <div class="profile_img">
+                        <div id="crop-avatar">
+                          <!-- Current avatar -->
+                          <canvas id="user-icon" height="200" width="200" style="border: 5px solid white;"></canvas>
+                         <!--  <img class="img-responsive avatar-view" src="{{person.profileImage}}" alt="Avatar" title="{{person.name}}"> -->
+      
+                        </div>
+                      </div>
+                      <h3 id="username">{{person.name}}</h3>
+
+                      <ul class="list-unstyled user_data" style="font-size: 19px">
+                                              <li><i class="fa user-profile-icon"><img src="/static/favicon.ico"/></i> {{person.technexId}}
+                        </li><li style="text-transform: capitalize;"><i class="fa fa-map-marker user-profile-icon"></i>
+                        {{person.city}}
+                        </li><li><i class="glyphicon glyphicon-education user-profile-icon"></i>
+                          {{position(person.year)}}, {{person.college}}
+                        </li>
+
+
+                      </ul>
+                      <hr>
+                      <div class="product_social" style="font-size: 35px;">
+                      <h3>Follow us on social media</h3>
+                        <ul class="list-inline">
+                          <li><a href="https://www.facebook.com/Technex"  target="_blank"><i class="fa fa-facebook-square"></i></a>
+                          </li>
+                                                    <li><a href="https://www.instagram.com/technexiitbhu"  target="_blank"><i class="fa fa-instagram"></i></a>
+                          </li>
+
+                          <li><a href="https://www.twitter.com/technexiitbhu"  target="_blank"><i class="fa fa-twitter-square"></i></a>
+                          </li>
+                          <li><a href="https://www.youtube.com/user/technexiitbhu"  target="_blank"><i class="fa fa-youtube-square"></i></a>
+                          </li>
+                        </ul>
+                      </div>
+
+                      <br>
+                      
+                    </div>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+
+                      <div class="" role="tabpanel" data-example-id="togglable-tabs">
+                        <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist" ng-init='tab1="active"'>
+                          <li role="presentation" style="cursor: pointer;" ng-class="tab1"><a id="profile-tab" ng-click='showDetails =false;showteams=true;showWorkshops=false;tab1="active";tab2="";tab3=""' >Teams</a>
+                          </li>
+                          <li role="presentation" style="cursor: pointer;"  ng-class="tab2"><a id="profile-tab2" ng-click='showDetails =true;showteams=false;tab2="active";tab1="";tab3="";showWorkshops=false'>Profile</a>
+                          </li>
+                                                   <li role="presentation" style="cursor: pointer;"  ng-class="tab3"><a id="profile-tab3" ng-click='showDetails =false;tab3="active";tab1="";tab2="";showteams=false;showWorkshops=true'>Workshops</a>
+                          </li>
+                        </ul>
+                        </div>
+                        <div id="myTabContent" class="tab-content" style="min-height:350px;overflow: auto;border: 3px solid white;">
+                          <div class="tab-pane fade" id="tab_content2" style="display: inline; opacity: 1;" ng-show="showteams" >
+                    <table class="table table-striped projects">
+                      <thead style="    border: 2px solid white;">
+                        <tr>
+                          <th style="width: 1%">#</th>
+                          <th style="width: 20%">Team Name</th>
+                          <th>Team Members</th>
+                          <th>Team Leader</th>
+                          <th>Actions</th>
+                          <!-- <th style="width: 20%">Deadline</th> -->
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr ng-repeat='team in teamArray track by $index'>
+                          <td>{{$index+1}}</td>
+                          <td>
+                            <a>{{team.teamName}}</a>
+                            <br>
+                            <small id='eventParentEvent'><a href='#' onmouseover="this.style.textDecoration='underline';" 
+    onmouseout="this.style.textDecoration='none';">{{team.parentEvent}}</a>/{{team.event}}</small>
+                          </td>
+                          <td>
+                            <ul class="list-inline">
+                              <li ng-repeat='memberUrl in team.memberUrls track by $index'>
+                                <span class="tooltip-nameDrama">
+                                <img src="{{memberUrl}}" class="avatar" alt="Avatar" />
+                                <span class="tooltiptext-nameDrama">{{team.memberNames[$index]}}</span>
+                                </span>                                
+                              </li>
+                            </ul>
+                          </td>
+                          <td class="project_progress">
+                            <h4>{{team.leader}}</h4>
+                          </td>
+                          <td>
+                            <button type="button" class="btn btn-danger btn-xs" ng-click='deleteTeam($index)' ng-disabled='team.leaderEmail != profileEmail'>Delete</button>
+                          <!-- ng-disabled='team.leaderEmail != profileEmail' -->
+                          </td>
+                         <!--  <td>
+                          <a> Later</a>
+                          </td> -->
+                        </tr>
+                                                
+                      </tbody>
+                    </table>
+                    <div class="container abcdf" ng-show="teamArray.length==0">
+  <div class="card">
+    
+    <p class="card--text">
+      Not Registered for any event??
+    </p>
+    <a class="card--title"1 href="#eventReg">Register Here</a>
+  </div>
+</div>
+                          </div>
+                  <div class="tab-pane fade" id="tab_content3" style="display: inline; opacity: 1;" ng-show="showDetails">
+                      <div class="details-display">
+                          <div class="x_title" style="background:white;padding-left: 20px;">
+                    <h2 style="color: black;text-transform: uppercase;">Personal Information</h2>
+                    <div class="clearfix"></div>
+                  </div>    
+                    <div style="display: -webkit-box"; class="x_title">
+                    <div style="width: 30%;align-items: center;"><h2 style="font-weight: 30px">Name :</h2></div>
+                    <div style="width: 70%"><h2 style="font-weight: 30px" ng-switch-default>
+                      {{person.name}} 
+                    </h2>
+                    <h2 style="font-weight: 30px" ng-switch-when="true">
+                       <input ng-focus="rmcls(this)" ng-model="editObject.name" placeholder="First Name"  id="forname" type="text"/>  
+                    </h2>
+                    </div>
+                    <div class="clearfix"></div>
+                    </div>  
+                                        <div style="display: -webkit-box"; class="x_title">
+                    <div style="width: 30%;align-items: center;"><h2 style="font-weight: 30px">Technex ID :</h2></div>
+                    <div style="width: 70%"><h2 style="font-weight: 30px">{{person.technexId}}</h2>
+                    </div>
+                    <div class="clearfix"></div>
+                    </div>
+                                        <div style="display: -webkit-box"; class="x_title">
+                    <div style="width: 30%;align-items: center;"><h2 style="font-weight: 30px">College Name :</h2></div>
+                    <div style="width: 70%"><h2 style="font-weight: 30px" ng-switch-default>{{person.college}}</h2>
+                      <h2 style="font-weight: 30px" ng-switch-when="true">
+                       <input ng-focus="rmcls(this)" ng-model="editObject.college" placeholder="College" id="forcollege" type="text"/>
+                    </h2>
+                    </div>
+
+                    <div class="clearfix"></div>
+                    </div>
+                                        <div style="display: -webkit-box"; class="x_title">
+                    <div style="width: 30%;align-items: center;"><h2 style="font-weight: 30px">College Year (1-5) :</h2></div>
+                    <div style="width: 70%"><h2 style="font-weight: 30px" ng-switch-default>{{person.year}}</h2>
+                      <h2 style="font-weight: 30px" ng-switch-when="true">
+                       <input ng-focus="rmcls(this)" ng-model="editObject.year" placeholder="College Year" id="forcollegeyear" type="text" maxlength="1"/>
+                    </h2>
+                       <ul class="parsley-errors-list filled" id="collegeyearerr" style="display: none;margin-top: 7px"><li class="parsley-required">College Year between 1 to 5</li></ul>
+                    </div>
+                    <div class="clearfix"></div>
+                    </div>
+
+                    <div style="display: -webkit-box"; class="x_title">
+                    <div style="width: 30%;align-items: center;"><h2 style="font-weight: 30px">City :</h2></div>
+                    <div style="width: 70%"><h2 style="font-weight: 30px" ng-switch-default>{{person.city}}</h2>
+                      <h2 style="font-weight: 30px" ng-switch-when="true">
+                       <input ng-focus="rmcls(this)" ng-model="editObject.city" placeholder="City" id="forcity" type="text"/>
+                    </h2>
+                    </div>
+                    <div class="clearfix"></div>
+                    </div>
+
+                    <div class="x_title" style="background: white;padding-left: 20px;color: black;text-transform: uppercase;">
+                    <h2>Contact Information</h2>
+                    <div class="clearfix"></div>
+                  </div>
+                           
+                    <div style="display: -webkit-box"; class="x_title">
+                    <div style="width: 30%;align-items: center;"><h2 style="font-weight: 30px">Email :</h2></div>
+                    <div style="width: 70%"><h2 style="font-weight: 30px">{{person.email}}</h2>
+                    </div>
+                    <div class="clearfix"></div>
+                    </div>
+                                        <div style="display: -webkit-box"; class="x_title">
+                    <div style="width: 30%;align-items: center;"><h2 style="font-weight: 30px">Mobile Number :</h2></div>
+                    <div style="width: 70%"><h2 style="font-weight: 30px" ng-switch-default>{{person.mobile}}</h2>
+                      <h2 style="font-weight: 30px" ng-switch-when="true">
+                       <input type="text" ng-focus="rmcls(this)" ng-model="editObject.mobile" id="formobile" placeholder="Mobile Number" /></h2>
+                              <ul class="parsley-errors-list filled" id="mobileerr" style="display: none;margin-top: 7px"><li class="parsley-required"> Invalid Mobile Number</li></ul>
+                    
+                    </div>
+                    <div class="clearfix"></div>
+                    </div> 
+                    <div ng-switch-default class="x_title" style="display: -webkit-box";>
+                     <div style="width: 50%"></div>
+                     <div style="width: 50%">     
+                    <button ng-click="editingPerson($index)" class="btn btn-success">EDIT</button>
+                    </div>
+                    </div>
+                      <div ng-switch-when="true" class="x_title" style="display: -webkit-box";>
+                    <div style="width: 50%">
+                    <button ng-click="saveEdit($index)" class="btn btn-primary savechanges" id="">SAVE</button>
+                    </div>
+                    <div style="width: 50%;">
+                    <button ng-click="cancelEdit()" class="btn btn-danger">CANCEL</button>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+
+              
+                          <div class="tab-pane fade" id="tab_content4" style="display: inline; opacity: 1;" ng-show="showWorkshops" >
+                    <table class="table table-striped projects">
+                      <thead style="    border: 2px solid white;">
+                        <tr>
+                          <th style="width: 1%">#</th>
+                          <th style="width: 20%">TeamId</th>
+                          
+                          <th>Workshop</th>
+                          <!-- <th style="width: 20%">Deadline</th> -->
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr ng-repeat='team in workshopArray track by $index'>
+                          <td>{{$index+1}}</td>
+                         <td class="project_progress">{{team.teamId}}</td>
+                          <td class="project_progress">
+                            <h4>{{team.workshop}}</h4>
+                          </td>
+                         <!--  <td>
+                          <a> Later</a>
+                          </td> -->
+                        </tr>
+                                                
+                      </tbody>
+                    </table>
+                          
+                          </div>
+
+</div>
+</div>                   
+       </div>
+       </div>
+       </div>
+       </div>
+
+              <script type="text/javascript">
+         var colours = ["#1abc9c", "#2ecc71", "#3498db", "#9b59b6", "#34495e", "#16a085", "#27ae60", "#2980b9", "#8e44ad", "#2c3e50", "#f1c40f", "#e67e22", "#e74c3c", "#95a5a6", "#f39c12", "#d35400", "#c0392b", "#bdc3c7", "#7f8c8d"];
+
+$(document).ready(function(){
+  
+
+makeimg($("#user_name").html());
+});
+
+       </script>
+        </section>
+
+       </div>
+
+
+                   
+  
